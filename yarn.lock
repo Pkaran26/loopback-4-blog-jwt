@@ -438,6 +438,15 @@
     type-is "^1.6.18"
     validator "^13.1.1"
 
+"@loopback/security@^0.2.16":
+  version "0.2.16"
+  resolved "https://registry.yarnpkg.com/@loopback/security/-/security-0.2.16.tgz#3597ec088c891759c79535634367b04d27826ead"
+  integrity sha512-OSIY4y13keh4F7eouqTxv3dNpNA2ph/MV0a3GI7AAnOlT9ixugLzQ4HF5pUFT2PolqiXvQ/LlvB0BX4vO+8kQQ==
+  dependencies:
+    "@loopback/core" "^2.9.3"
+    debug "^4.1.1"
+    tslib "^2.0.0"
+
 "@loopback/service-proxy@^2.3.6":
   version "2.3.6"
   resolved "https://registry.yarnpkg.com/@loopback/service-proxy/-/service-proxy-2.3.6.tgz#2074b47e7b911b6214a11fc9161e364c51a7511f"
@@ -601,7 +610,7 @@
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.5.tgz#dcce4430e64b443ba8945f0290fb564ad5bac6dd"
   integrity sha512-7+2BITlgjgDhH0vvwZU/HZJVyk+2XUlvxXe8dFMedNX/aMkaOq++rMAFXc0tM7ij15QaWlbdQASBR9dihi+bDQ==
 
-"@types/lodash@^4.14.159":
+"@types/lodash@^4.14.158", "@types/lodash@^4.14.159":
   version "4.14.159"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.159.tgz#61089719dc6fdd9c5cb46efc827f2571d1517065"
   integrity sha512-gF7A72f7WQN33DpqOWw9geApQPh4M3PxluMtaHxWHXEGSN12/WbcEk/eNSqWNQcQhF66VSZ06vCF94CrHwXJDg==

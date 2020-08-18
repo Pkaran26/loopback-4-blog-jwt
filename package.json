@@ -45,11 +45,13 @@
     "!*/__tests__"
   ],
   "dependencies": {
+    "@loopback/authentication": "^5.0.0",
     "@loopback/boot": "^2.4.1",
     "@loopback/core": "^2.9.3",
     "@loopback/repository": "^2.11.0",
     "@loopback/rest": "^6.0.0",
     "@loopback/rest-explorer": "^2.2.8",
+    "@loopback/security": "^0.2.16",
     "@loopback/service-proxy": "^2.3.6",
     "@types/bcryptjs": "^2.4.2",
     "@types/lodash": "^4.14.159",

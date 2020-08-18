@@ -8,16 +8,17 @@ import { inject } from "@loopback/core";
 import { BcryptHasher } from "../services/hash.password.bcrypt";
 import { Credentials } from "../repositories/user.repository";
 import { CredentialsRequestBody } from "../spec/user.controller.spec";
-// Uncomment these imports to begin using these cool features!
+import { MyUserService } from "../services/user-service";
 
-// import {inject} from '@loopback/core';
 
 export class UserController {
   constructor(
     @repository(UserRepository)
     public userRepository: UserRepository,
     @inject('service.hasher')
-    public hasher: BcryptHasher
+    public hasher: BcryptHasher,
+    @inject('services.user.service')
+    public userService: MyUserService
   ) {}
 
   @post('/signup', {
@@ -63,6 +64,11 @@ export class UserController {
   async login(
     @requestBody(CredentialsRequestBody) credentials: Credentials,
   ):  Promise<{token: string}> {
+    const user = await this.userService.verifyCredentials(credentials);
+    console.log(user);
+    const userProfile = this.userService.convertToUserProfile(user)
+    console.log(userProfile);
+
     return Promise.resolve({ token: '456d465sd4g'})
   }
 }
