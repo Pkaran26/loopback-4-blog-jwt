@@ -38,7 +38,8 @@ export class MyUserService implements UserService<User, Credentials>{
 
   convertToUserProfile(
     user: User
-  ): UserProfile {
+  ): any /*UserProfile*/{
+
     let userName = ''
     if(user.fname){
       userName = user.fname
@@ -48,6 +49,6 @@ export class MyUserService implements UserService<User, Credentials>{
       `${ user.fname } ${ user.lname }` :
       user.lname
     }
-    return { id: user.id, name: userName}
+    return { id: user.id, name: userName }
   }
 }
