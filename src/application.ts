@@ -11,6 +11,7 @@ import path from 'path';
 import {MySequence} from './sequence';
 import { BcryptHasher } from "./services/hash.password.bcrypt";
 import { MyUserService } from "./services/user-service";
+import { JWTService } from "./services/jwt-service";
 
 export {ApplicationConfig};
 
@@ -50,5 +51,8 @@ export class BlogApplication extends BootMixin(
     this.bind('service.hasher').toClass(BcryptHasher);
     this.bind('rounds').to(10);
     this.bind('services.user.service').toClass(MyUserService)
+    this.bind('services.jwt.service').toClass(JWTService)
+    this.bind('authentication.jwt.secret').to('ds46s5dg465df4hd');
+    this.bind('authentication.jwt.expiresIn').to('7h');
   }
 }

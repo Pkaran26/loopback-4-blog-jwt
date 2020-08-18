@@ -9,7 +9,7 @@ import { BcryptHasher } from "../services/hash.password.bcrypt";
 import { Credentials } from "../repositories/user.repository";
 import { CredentialsRequestBody } from "../spec/user.controller.spec";
 import { MyUserService } from "../services/user-service";
-
+import { JWTService } from "../services/jwt-service";
 
 export class UserController {
   constructor(
@@ -18,7 +18,9 @@ export class UserController {
     @inject('service.hasher')
     public hasher: BcryptHasher,
     @inject('services.user.service')
-    public userService: MyUserService
+    public userService: MyUserService,
+    @inject('services.jwt.service')
+    public jwtService: JWTService,
   ) {}
 
   @post('/signup', {
@@ -65,10 +67,8 @@ export class UserController {
     @requestBody(CredentialsRequestBody) credentials: Credentials,
   ):  Promise<{token: string}> {
     const user = await this.userService.verifyCredentials(credentials);
-    console.log(user);
     const userProfile = this.userService.convertToUserProfile(user)
-    console.log(userProfile);
-
-    return Promise.resolve({ token: '456d465sd4g'})
+    const token = await this.jwtService.generateToken(userProfile)
+    return Promise.resolve({ token: token})
   }
 }
